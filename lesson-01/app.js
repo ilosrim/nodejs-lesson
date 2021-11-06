@@ -11,8 +11,10 @@ http.createServer((req, res) => {
   // const q = url.parse(req.url, true).query;
   // const txt = `${q.year} ${q.month}`;
   // res.end(txt);
-  fs.readFile('demo.html', (err, data)=>{
-    res.writeHead(200, {'Content-Type': 'text/html'});
+  fs.readFile('demo.html', (err, data) => {
+    res.writeHead(200, {
+      'Content-Type': 'text/html'
+    });
     res.write(data);
     return res.end();
   })
