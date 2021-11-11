@@ -1,5 +1,15 @@
 {
+  "name": "lesson-02",
+  "version": "1.0.0",
+  "description": "Node JS example",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "ilosrim",
+  "license": "ISC",
   "devDependencies": {
-    "@types/node": "^16.11.7"
+    "nodemon": "^2.0.15"
   }
 }
