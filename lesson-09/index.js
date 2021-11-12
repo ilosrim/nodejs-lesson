@@ -26,6 +26,8 @@ app.get('/download', (req, res) => {
 // statik fayllar
 app.use(express.static(path.join(__dirname, 'public')));
 
+// middleware
+
 const logger = (req, res, next) => {
   // console.log("Hello middleware!!!");
   console.log(`${req.protocol}://${req.get('host')}${req.originalUrl}`);
@@ -33,11 +35,11 @@ const logger = (req, res, next) => {
 
 app.use(logger);
 
-app.get('/api/members', (req, res) => {
+app.get('/members', (req, res) => {
   res.json(members);
 });
 
-app.get('/api/members/id', (req, res) => {
+app.get('/members/id', (req, res) => {
   const found = members.some(member => member.id === parseInt(req.params.id));
   if (found) {
     res.json(members.filter(member => member.id === parseInt(req.params.id)));
@@ -47,3 +49,9 @@ app.get('/api/members/id', (req, res) => {
     });
   }
 });
+
+app.use('/api/members', require('./routes/api/member'));
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: false
+}));
