@@ -23,6 +23,7 @@ app.get('/download', (req, res) => {
 //   res.sendFile(path.join(__dirname, 'public', 'about.html'));
 // });
 
+
 // statik fayllar
 app.use(express.static(path.join(__dirname, 'public')));
 
